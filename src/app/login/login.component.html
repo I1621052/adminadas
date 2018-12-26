@@ -5,20 +5,20 @@
     <div class="login-register" style="background-image:url(../assets/images/background/login-register.jpg);">
         <div class="login-box card">
             <div class="card-body">
-                <form class="form-horizontal form-material" (ngSubmit)="ingresar()">
+                <form ngNativeValidate #f="ngForm" class="form-horizontal form-material" (ngSubmit)="ingresar(f)">
                     <h3 class="box-title m-b-20">Iniciar sesion</h3>
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" type="text" placeholder="Usuario"> </div>
+                            <input [ngModel]="email" name="email" class="form-control" type="email" required placeholder="Correo del usuario"> </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-12">
-                            <input class="form-control" type="password" placeholder="Contraseña"> </div>
+                            <input ngModel name="password" class="form-control" type="password" required placeholder="Contraseña"> </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-md-12">
                             <div class="checkbox checkbox-info pull-left p-t-0">
-                                <input id="checkbox-signup" type="checkbox" class="filled-in chk-col-light-blue">
+                                <input [(ngModel)]="recuerdame" name="recuerdame" id="checkbox-signup" type="checkbox" class="filled-in chk-col-light-blue">
                                 <label for="checkbox-signup"> Recordarme </label>
                             </div> <a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i>
                 Olvide contraseña</a>
@@ -41,7 +41,7 @@
                     </div>
                     <div class="form-group m-b-0">
                         <div class="col-sm-12 text-center">
-                            ¿No tienes cuenta? <a href="pages-register.html" class="text-info m-l-5"><b>Registrate</b></a>
+                            ¿No tienes cuenta? <a routerLink="/register" class="text-info m-l-5"><b>Registrate</b></a>
                         </div>
                     </div>
                 </form>

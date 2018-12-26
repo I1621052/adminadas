@@ -4,6 +4,7 @@ import swal from 'sweetalert';
 import { switchAll } from 'rxjs/operators';
 import { UsuarioService } from '../services/service.index';
 import { Usuario } from '../models/usuario.model';
+import { Router } from '@angular/router';
 declare function init_plugings();
 @Component({
   selector: 'app-register',
@@ -14,7 +15,8 @@ export class RegisterComponent implements OnInit {
   forma: FormGroup;
 
   constructor(
-    public _usuarioService: UsuarioService
+    public _usuarioService: UsuarioService,
+    public router:Router
   ) { }
 
   sonIguales(campo1: String, campo2: String) {
@@ -62,9 +64,6 @@ export class RegisterComponent implements OnInit {
       this.forma.value.password
     );
     this._usuarioService.crearUsuario(usuario)
-    .subscribe( resp =>{
-        console.log(resp);
-        
-    });
+    .subscribe( resp => this.router.navigate(['/login']));
   }
 }
