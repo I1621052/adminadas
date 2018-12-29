@@ -10,6 +10,10 @@ import { RxjsComponent } from './rxjs/rxjs.component';
 import { LoginGuardGuard } from '../services/guards/login-guard.guard';
 import { ProfileComponent } from './profile/profile.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { CategoriasComponent } from './categorias/categorias.component';
+import { ServiciosComponent } from './servicios/servicios.component';
+import { HabitacionesComponent } from './habitaciones/habitaciones.component';
+import { HabitacionComponent } from './habitaciones/habitacion.component';
 
 
 
@@ -27,7 +31,11 @@ const PAGESROUTES: Routes = [
             { path: 'accout-settings', component: AccoutSettingsComponent, data: { titulo: 'Temas' } },
             { path: 'perfil', component: ProfileComponent, data: { titulo: 'Perfil' } },
             //mantenimientos
-            { path: 'usuarios', component: UsuariosComponent, data: { titulo: 'Mantenimiento de usuarios' } },
+            { path: 'habitaciones', component: HabitacionesComponent, data: { titulo: 'Mantenimineto de Habitaciones' } },
+            { path: 'habitacion/:id', component: HabitacionComponent, data: { titulo: 'Actualizar habitacion' } },
+            { path: 'categorias', component: CategoriasComponent, data: { titulo: 'Mantenimineto de Categorias' } },
+            { path: 'servicios', component: ServiciosComponent, data: { titulo: 'Mantenimineto de Servicios' } },
+            { path: 'usuarios', component: UsuariosComponent, data: { titulo: 'Mantenimiento de Usuarios' } },
             { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
         ]
     }

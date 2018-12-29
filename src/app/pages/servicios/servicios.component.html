@@ -1,0 +1,53 @@
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <input #input (keyup)="buscarServicio( input.value )" type="text" class="form-control" placeholder="Buscar servicio">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="text-right">
+                    <button (click)="crearServicio()" type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Agregar Servicio</button>
+                </div>
+                <h3 class="card-title">Servicios registrados <span class="label label-primary label-rounded">{{_servicioService.totalServicios}}</span></h3>
+                <table class="table color-bordered-table inverse-bordered-table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Detalles</th>
+                            <th>Precio</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let servicio of servicios">
+                        <tr>
+                            <td>
+                                <input [(ngModel)]="servicio.nombre" name="nombre" type="text" class="form-control" placeholder="Nombre del servicio">
+                            </td>
+                            <td>
+                                <input [(ngModel)]="servicio.detalles" name="detalles" type="text" class="form-control" placeholder="Detalle de servicio">
+                            </td>
+                            <td>
+                                <input [(ngModel)]="servicio.precios" name="detalles" type="text" class="form-control" placeholder="precio de servicio">
+                            </td>
+                            <td>
+                                <button (click)="guardarServicio(servicio)" class="btn btn-primary">
+                        <i class="fa fa-save"></i>
+                      </button>
+                                <button (click)="borrarServicio(servicio)" class="btn btn-danger ml-1">
+                        <i class="fa fa-trash-o"></i>
+                      </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

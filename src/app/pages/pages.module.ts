@@ -1,7 +1,7 @@
 import { PAGES_ROUTES } from './pages.routes';
 import { NgModule } from "@angular/core";
 import { SharedModule } from '../shared/shared.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
 import { ProfileComponent } from './profile/profile.component';
 
@@ -21,6 +21,10 @@ import { PipesModule } from '../pipes/pipes.module';
 import { CommonModule } from '@angular/common';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
+import { CategoriasComponent } from './categorias/categorias.component';
+import { ServiciosComponent } from './servicios/servicios.component';
+import { HabitacionesComponent } from './habitaciones/habitaciones.component';
+import { HabitacionComponent } from './habitaciones/habitacion.component';
 
 @NgModule({
     declarations: [
@@ -34,7 +38,12 @@ import { ModalUploadComponent } from '../components/modal-upload/modal-upload.co
         PromesasComponent,
         RxjsComponent,
         ProfileComponent,
-        UsuariosComponent,ModalUploadComponent
+        UsuariosComponent,
+        ModalUploadComponent,
+        CategoriasComponent,
+        ServiciosComponent,
+        HabitacionesComponent,
+        HabitacionComponent
     ],
     exports: [
         DashboardComponent,
@@ -47,7 +56,8 @@ import { ModalUploadComponent } from '../components/modal-upload/modal-upload.co
         FormsModule,
         ChartsModule,
         PipesModule,
-        CommonModule
+        CommonModule,
+        ReactiveFormsModule
     ]
 })
 

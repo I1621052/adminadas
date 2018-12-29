@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-9">
+        <div class="card">
+            <div class="card-body">
+                <div class="col-6">
+                    <div class="card card-body">
+                        <h3 class="box-title m-b-0">Habitacion: </h3>
+                        <p class="text-muted m-b-30 font-13"> Editar habitacion </p>
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-12">
+                                <form #f="ngForm" ngNativeValidate (ngSubmit)="guardarHabitacion(f)">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Numero de habitacion</label>
+                                        <input [(ngModel)]="habitacion.numero" name="numero" type="text" class="form-control" required placeholder="numero de habitacion">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Piso</label>
+                                        <input [(ngModel)]="habitacion.piso" name="piso" type="number" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Categoria</label>
+                                        <select (change)="cambioCategoria($event.target.value)" [(ngModel)]="habitacion.categoria" name="categoria" class="form-control" required>
+                                          <option value="">Seleccione categoria</option>
+                                          <option *ngFor="let categoria of categorias " [value]="categoria._id">{{categoria.nombre}}</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-success waves-effect waves-light m-r-10"> <i class="fa fa-save"></i> Guardar</button>
+                                    <button routerLink="/habitaciones" class="btn btn-inverse waves-effect waves-light"> <i class="fa fa-window-close"></i> Cancelar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="card card-body">
+            <h3 class="box-title mt-4">Detalles Categoria {{categoria.nombre}}</h3>
+            <label for="exampleInputEmail1" class="text-info">{{categoria.detalles}}</label>
+        </div>
+    </div>
+</div>

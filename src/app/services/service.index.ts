@@ -1,4 +1,8 @@
+export { HabitacionService } from './habitacion/habitacion.service';
+export { ServicioService } from './servicio/servicio.service';
+export { CategoriaService } from './categoria/categoria.service';
 export { LoginGuardGuard } from './guards/login-guard.guard';
+
 
 export { SubirArchivoService } from './subir-archivo/subir-archivo.service';
 export { UsuarioService } from './usuario/usuario.service';

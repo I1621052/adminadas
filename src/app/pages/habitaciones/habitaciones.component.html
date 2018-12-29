@@ -1,0 +1,56 @@
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <input #input (keyup)="buscarHabitacion( input.value )" type="text" class="form-control" placeholder="Buscar habitacion">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="text-right">
+                    <button [routerLink]="['/habitacion','nuevo']" type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Agregar Habitacion</button>
+                </div>
+
+                <h3 class="card-title">Habitaciones registradas <span class="label label-primary label-rounded">{{_habitacionService.totalHabitaciones}}</span></h3>
+
+                <table class="table color-bordered-table inverse-bordered-table">
+                    <thead>
+                        <tr>
+                            <th>Numero - Piso</th>
+                            <th>Categoria</th>
+                            <th>Detalles</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let habitacion of habitaciones">
+                        <tr>
+                            <td>
+                                {{habitacion.numero}} - {{habitacion.piso}}
+                            </td>
+                            <td>
+                                {{habitacion.categoria.nombre}}
+                            </td>
+                            <td>
+                                {{habitacion.categoria.detalles}}
+                            </td>
+                            <td>
+                                <button [routerLink]="['/habitacion',habitacion._id]" class="btn btn-primary">
+                        <i class="fa fa-save"></i>
+                      </button>
+                                <button (click)="borrarHabitacion(habitacion)" class="btn btn-danger ml-1">
+                        <i class="fa fa-trash-o"></i>
+                      </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

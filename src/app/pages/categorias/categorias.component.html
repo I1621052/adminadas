@@ -1,0 +1,51 @@
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <input #input (keyup)="buscarCategoria( input.value )" type="text" class="form-control" placeholder="Buscar categoria">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="text-right">
+                    <button (click)="crearCategoria()" type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Agregar Categoria</button>
+                </div>
+
+                <h3 class="card-title">Categorias registradas <span class="label label-primary label-rounded">{{_categoriaService.totalCategorias}}</span></h3>
+
+                <table class="table color-bordered-table inverse-bordered-table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Detalles</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let categoria of categorias">
+                        <tr>
+                            <td>
+                                <input [(ngModel)]="categoria.nombre" name="nombre" type="text" class="form-control" placeholder="Nombre de categoria">
+                            </td>
+                            <td>
+                                <input [(ngModel)]="categoria.detalles" name="detalles" type="text" class="form-control" placeholder="Detalles de categoria">
+                            </td>
+                            <td>
+                                <button (click)="guardarCategoria(categoria)" class="btn btn-primary">
+                          <i class="fa fa-save"></i>
+                        </button>
+                                <button (click)="borrarCategoria(categoria)" class="btn btn-danger ml-1">
+                          <i class="fa fa-trash-o"></i>
+                        </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
