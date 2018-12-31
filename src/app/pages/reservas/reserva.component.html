@@ -1,3 +1,75 @@
-<p>
-  reserva works!
-</p>
+<div class="row form-material">
+    <div class="col-md-7">
+        <div class="card card-body">
+            <h3 class="box-title m-b-0">Reserva: {{reserva.dni}}</h3>
+            <p class="text-muted m-b-30 font-13"> formulario de reserva </p>
+            <div class="row">
+                <div class="col-sm-12 col-xs-12">
+                    <form #f="ngForm" ngNativeValidate (ngSubmit)="guardarReserva(f)">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">DNI</label>
+                            <input [(ngModel)]="reserva.dni" name="dni" type="number" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Nombre</label>
+                            <input [(ngModel)]="reserva.nombre" name="nombre" type="text" class="form-control" placeholder="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Apellidos</label>
+                            <input [(ngModel)]="reserva.apellidos" name="apellidos" type="text" class="form-control" placeholder="apellidos" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Numero celular</label>
+                            <input [(ngModel)]="reserva.numero" name="numero" type="number" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Fecha Entrada</label>
+                            <input [(ngModel)]="reserva.fechainicio" name="fechainicio" type="date" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Fecha Salida</label>
+                            <input [(ngModel)]="reserva.fechafin" name="fechafin" type="date" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Habitacion</label>
+                            <select (change)="cambioHabitacion($event.target.value)" [(ngModel)]="reserva.habitacion" name="habitacion" class="form-control" required>
+                              <option value="">Seleccione habitacion</option>
+                              <option *ngFor="let habitacion of habitaciones" [value]="habitacion._id">{{habitacion.categoria.nombre}} - {{habitacion.numero}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Servicio</label>
+                            <select (change)="cambioServicio($event.target.value)" [(ngModel)]="reserva.servicio" name="servicio" class="form-control" required>
+                              <option value="">Seleccione servicio</option>
+                              <option *ngFor="let servicio of servicios" [value]="servicio._id">{{servicio.nombre}} - {{servicio.precios}}</option>
+                            </select>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Total</label>
+                                <input [(ngModel)]="reserva.total" name="total" type="number" class="form-control" placeholder="{{servicio.precios}}">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success waves-effect waves-light m-r-10"><i class="fa fa-save"> Guardar</i></button>
+                        <a routerLink="/reservas" class="btn btn-inverse waves-effect waves-light"><i class="fa fa-mail-reply"></i> Atras</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card card-body">
+            <h3 class="box-title m-b-0">Habitacion</h3>
+            <h3 class="box-title mt-4">Detalles Habitacion</h3>
+            <label for="exampleInputEmail1" class="text-info">Numero: {{habitacion.numero}}</label>
+            <label for="exampleInputEmail1" class="text-info">Piso: {{habitacion.piso}}</label>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="card card-body">
+            <h3 class="box-title m-b-0">Servicio</h3>
+            <h3 class="box-title mt-4">Detalles Servicio </h3>
+            <label for="exampleInputEmail1" class="text-info">Nombre: {{servicio.nombre}}</label>
+            <label for="exampleInputEmail1" class="text-info">Detalles: {{servicio.detalles}}</label>
+            <label for="exampleInputEmail1" class="text-info">Precio: {{servicio.precios}}</label>
+        </div>
+    </div>
+</div>

@@ -28,7 +28,7 @@ export class ServicioService {
   obtenerServicio(id: string) {
     let url = URL_SERVICIOS + '/servicio/' + id;
     return this.http.get(url)
-      .pipe(map((resp: any) => resp.categorias));
+      .pipe(map((resp: any) => resp.servicio));
   }
   //===========================================BORRAR SERVICIO
 

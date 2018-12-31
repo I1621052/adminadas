@@ -13,9 +13,9 @@
         <div class="card">
             <div class="card-body">
                 <div class="text-right">
-                    <button (click)="crearReserva()" type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Nueva reserva</button>
+                    <button [routerLink]="['/reserva','nuevo']" type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Nueva reserva</button>
                 </div>
-                <h3 class="card-title">Reservas registradas <span class="label label-primary label-rounded">8</span></h3>
+                <h3 class="card-title">Reservas registradas <span class="label label-primary label-rounded">{{_reservaService.totalReservas}}</span></h3>
                 <table class="table color-bordered-table inverse-bordered-table">
                     <thead>
                         <tr>
@@ -24,17 +24,28 @@
                             <th>F. Inicio</th>
                             <th>F. Fin</th>
                             <th>Precio</th>
+                            <th>Servicio</th>
+                            <th>Habitacion</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
+                        <tr *ngFor="let reserva of reservas">
+                            <th>{{reserva.dni}}</th>
+                            <th>{{reserva.nombre}}</th>
+                            <th>{{reserva.fechainicio | date}}</th>
+                            <th>{{reserva.fechafin | date}}</th>
+                            <th>{{reserva.total}}</th>
+                            <th>{{reserva.servicio.nombre}}</th>
+                            <th>{{reserva.habitacion.numero}}</th>
+                            <th>
+                                <button [routerLink]="['/reserva', reserva._id]" class="btn btn-primary">
+                                <i class="fa fa-edit"></i>
+                              </button>
+                                <button (click)="borrarReserva(reserva)" class="btn btn-danger ml-1">
+                                <i class="fa fa-trash-o"></i>
+                              </button>
+                            </th>
                         </tr>
                     </tbody>
                 </table>

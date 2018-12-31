@@ -34,7 +34,7 @@ const PAGESROUTES: Routes = [
             { path: 'accout-settings', component: AccoutSettingsComponent, data: { titulo: 'Temas' } },
             { path: 'perfil', component: ProfileComponent, data: { titulo: 'Perfil' } },
             { path: 'busqueda/:termino', component: BusquedaComponent, data: { titulo: 'Buscador' } },
-            { path: 'reservas/:id', component: ReservaComponent, data: { titulo: 'Reserva' } },
+            { path: 'reserva/:id', component: ReservaComponent, data: { titulo: 'Reserva' } },
             //mantenimientos
             { path: 'habitaciones', component: HabitacionesComponent, data: { titulo: 'Mantenimineto de Habitaciones' } },
             { path: 'habitacion/:id', component: HabitacionComponent, data: { titulo: 'Actualizar habitacion' } },

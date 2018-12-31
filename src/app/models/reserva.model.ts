@@ -6,10 +6,8 @@ export class Reserva {
         public numero?: number,
         public fechainicio?: Date,
         public fechafin?: Date,
-        public precio?: number,
         public total?: number,
-        public usuario?: string,
-        public hbitacion?: string,
+        public habitacion?: string,
         public servicio?:string,
         public _id?: string
     ) { }
