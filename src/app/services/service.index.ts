@@ -1,3 +1,4 @@
+export { ReservaService } from './reserva/reserva.service';
 export { HabitacionService } from './habitacion/habitacion.service';
 export { ServicioService } from './servicio/servicio.service';
 export { CategoriaService } from './categoria/categoria.service';

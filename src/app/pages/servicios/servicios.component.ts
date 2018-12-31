@@ -54,8 +54,8 @@ servicios: Servicio[]=[];
   //'''''''''''''''''''''''''''''''''''''''''''''''''''''''''
   crearServicio() {
     swal({
-      title: 'Agregar categoria',
-      text: 'Igrese nombre de categoria',
+      title: 'Agregar Servicio',
+      text: 'Igrese nombre del servicio',
       content: 'input',
       icon: 'info',
       buttons: true,

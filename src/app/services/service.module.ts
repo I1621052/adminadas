@@ -12,7 +12,8 @@ import {
   LoginGuardGuard,
   CategoriaService,
   ServicioService,
-  HabitacionService
+  HabitacionService,
+  ReservaService
 } from './service.index';
 
 @NgModule({
@@ -30,7 +31,8 @@ import {
     ModalUploadService,
     CategoriaService,
     ServicioService,
-    HabitacionService
+    HabitacionService,
+    ReservaService    
   ],
   declarations: []
 })

@@ -1,21 +1,21 @@
-<div class="row">
-    <div class="col-9">
+<div class="row animated fadeIn">
+    <div class="col-7">
         <div class="card">
             <div class="card-body">
-                <div class="col-6">
+                <div class="col-12">
                     <div class="card card-body">
-                        <h3 class="box-title m-b-0">Habitacion: </h3>
+                        <h3 class="box-title m-b-0">Habitacion: {{habitacion.numero}}</h3>
                         <p class="text-muted m-b-30 font-13"> Editar habitacion </p>
                         <div class="row">
                             <div class="col-sm-12 col-xs-12">
                                 <form #f="ngForm" ngNativeValidate (ngSubmit)="guardarHabitacion(f)">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Numero de habitacion</label>
-                                        <input [(ngModel)]="habitacion.numero" name="numero" type="text" class="form-control" required placeholder="numero de habitacion">
+                                        <label>Numero de habitacion</label>
+                                        <input [(ngModel)]="habitacion.numero" name="numero" type="text" required class="form-control" required placeholder="numero de habitacion">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Piso</label>
-                                        <input [(ngModel)]="habitacion.piso" name="piso" type="number" class="form-control">
+                                        <label>Piso</label>
+                                        <input [(ngModel)]="habitacion.piso" name="piso" type="number" required class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Categoria</label>
@@ -25,7 +25,7 @@
                                         </select>
                                     </div>
                                     <button type="submit" class="btn btn-success waves-effect waves-light m-r-10"> <i class="fa fa-save"></i> Guardar</button>
-                                    <button routerLink="/habitaciones" class="btn btn-inverse waves-effect waves-light"> <i class="fa fa-window-close"></i> Cancelar</button>
+                                    <a routerLink="/habitaciones" class="btn btn-inverse waves-effect waves-light"> <i class="fa fa-window-close"></i> Cancelar</a>
                                 </form>
                             </div>
                         </div>

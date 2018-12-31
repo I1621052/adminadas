@@ -22,7 +22,8 @@
                 <table class="table color-bordered-table inverse-bordered-table">
                     <thead>
                         <tr>
-                            <th>Numero - Piso</th>
+                            <th>Numero</th>
+                            <th>Piso</th>
                             <th>Categoria</th>
                             <th>Detalles</th>
                             <th></th>
@@ -31,7 +32,10 @@
                     <tbody *ngFor="let habitacion of habitaciones">
                         <tr>
                             <td>
-                                {{habitacion.numero}} - {{habitacion.piso}}
+                                {{habitacion.numero}}
+                            </td>
+                            <td>
+                                {{habitacion.piso}}
                             </td>
                             <td>
                                 {{habitacion.categoria.nombre}}
@@ -41,7 +45,7 @@
                             </td>
                             <td>
                                 <button [routerLink]="['/habitacion',habitacion._id]" class="btn btn-primary">
-                        <i class="fa fa-save"></i>
+                        <i class="fa fa-pencil-square-o"></i>
                       </button>
                                 <button (click)="borrarHabitacion(habitacion)" class="btn btn-danger ml-1">
                         <i class="fa fa-trash-o"></i>
@@ -50,6 +54,12 @@
                         </tr>
                     </tbody>
                 </table>
+                <button (click)="cambiarDesde(-10)" class="btn btn-secondary">
+                    Atras
+                  </button>
+                <button (click)="cambiarDesde(10)" class="btn btn-secondary ml-1 ">
+                    Siguientes
+                  </button>
             </div>
         </div>
     </div>

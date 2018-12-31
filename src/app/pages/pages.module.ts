@@ -25,6 +25,9 @@ import { CategoriasComponent } from './categorias/categorias.component';
 import { ServiciosComponent } from './servicios/servicios.component';
 import { HabitacionesComponent } from './habitaciones/habitaciones.component';
 import { HabitacionComponent } from './habitaciones/habitacion.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
+import { ReservasComponent } from './reservas/reservas.component';
+import { ReservaComponent } from './reservas/reserva.component';
 
 @NgModule({
     declarations: [
@@ -43,7 +46,10 @@ import { HabitacionComponent } from './habitaciones/habitacion.component';
         CategoriasComponent,
         ServiciosComponent,
         HabitacionesComponent,
-        HabitacionComponent
+        HabitacionComponent,
+        BusquedaComponent,
+        ReservasComponent,
+        ReservaComponent
     ],
     exports: [
         DashboardComponent,

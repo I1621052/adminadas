@@ -9,6 +9,9 @@ import { HabitacionService } from '../../services/habitacion/habitacion.service'
 })
 export class HabitacionesComponent implements OnInit {
   habitaciones: Habitacion[] = [];
+  
+  totalRegistros: number = 0;
+  desde: number = 0;
   constructor(
     public _habitacionService: HabitacionService
   ) { }
@@ -17,8 +20,24 @@ export class HabitacionesComponent implements OnInit {
     this.cargarHabitacion();
   }
   //====================================================================
+  cambiarDesde(valor: number) {
+    let desde = this.desde + valor;
+    console.log(desde);
+    if (desde >= this._habitacionService.totalHabitaciones) {
+      return;
+    }
+    if (desde < 0) {
+      return;
+    }
+    this.desde += valor;
+    this.cargarHabitacion();
+
+  }
+  //====================================================================
+
+  //====================================================================
   cargarHabitacion() {
-    this._habitacionService.cargarHabitaciones()
+    this._habitacionService.cargarHabitaciones(this.desde)
       .subscribe(habitaciones => this.habitaciones = habitaciones);
   }
   //====================================================================
@@ -35,9 +54,10 @@ export class HabitacionesComponent implements OnInit {
   //====================================================================
 
   //====================================================================
-  borrarHabitacion(habitacion: Habitacion){
+  borrarHabitacion(habitacion: Habitacion) {
     this._habitacionService.borrarHabitacion(habitacion._id)
-    .subscribe(()=>this.cargarHabitacion());
+      .subscribe(() => this.cargarHabitacion());
   }
   //====================================================================
+
 }

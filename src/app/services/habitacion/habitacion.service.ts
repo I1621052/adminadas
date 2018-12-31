@@ -16,8 +16,8 @@ export class HabitacionService {
   ) { }
 
   //===================================================================
-  cargarHabitaciones() {
-    let url = URL_SERVICIOS + '/habitacion';
+  cargarHabitaciones(desde: number = 0) {
+    let url = URL_SERVICIOS + '/habitacion?desde=' + desde;
     return this.http.get(url)
       .pipe(map((resp: any) => {
         this.totalHabitaciones = resp.total;
@@ -46,12 +46,35 @@ export class HabitacionService {
   //===================================================================
   guardarHabitacion(habitacion: Habitacion) {
     let url = URL_SERVICIOS + '/habitacion';
-    url += '?token=' + this._usuarioServices.token;
-    return this.http.post(url, habitacion)
-      .pipe(map((resp: any) => {
-        swal('Habitacion creado', habitacion.numero, 'success');
-        return resp.habitacion;
+    if(habitacion._id){
+      //actualizando
+      url += '/' + habitacion._id;
+      url += '?token=' + this._usuarioServices.token;
+      return this.http.put(url, habitacion)
+      .pipe(map((resp:any)=>{
+      swal('Habitacion actualizada', habitacion.numero, 'success');
+      return resp.habitacion;
       }));
+    }else{
+      //creando
+      url += '?token=' + this._usuarioServices.token;
+      return this.http.post(url, habitacion)
+        .pipe(map((resp: any) => {
+          swal('Habitacion creado', habitacion.numero, 'success');
+          return resp.habitacion;
+        }));
+    }
+
+
   }
   //===================================================================
+
+  //===================================================================
+  cargarHabitacion(id: string) {
+    let url = URL_SERVICIOS + '/habitacion/' + id;
+    return this.http.get(url)
+    .pipe(map( (resp:any)=>resp.habitacion));
+  }
+  //===================================================================
+
 }
